@@ -13,6 +13,8 @@ class BankAccount:
                 f.write(message + "\n")
 
     def deposit(self, amount):
+        if amount < 0:
+            raise ValueError("No se puede depositar una cantidad negativa")
         if amount > 0:
             self.balance += amount
             self._log_transaction(f"Depósito de {amount}. Nuevo saldo: {self.balance}")
